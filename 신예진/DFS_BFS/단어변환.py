@@ -20,12 +20,14 @@ def bfs(i, target, words):
         if changable(i, target) == True:
             answer += 1
             return answer
+            # 바로 target으로 변환 가능한 상태면 answer 리턴
         for j in range(len(words)):
             if changable(i, words[j]) == True and words[j] not in visited:
                 queue.append(words[j])
                 visited.append(words[j])
                 answer += 1
                 break
+                # 여러 개 선택 가능할 때 한 가지만 선택하도록
     
 def solution(begin, target, words):
     global answer
@@ -34,4 +36,3 @@ def solution(begin, target, words):
         return answer
     else:
         return 0
-        
