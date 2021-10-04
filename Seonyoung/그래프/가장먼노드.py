@@ -1,18 +1,18 @@
 from collections import deque, defaultdict
 
 def bfs(graph, start, visited, distance):
-    queue = deque([[start, 0]])
+    queue = deque([start])
+    distance[start] = 0
     visited[start] = True
 
     while queue:
-        node, depth = queue.popleft()
-        distance[node] = depth
+        node = queue.popleft()
 
         for i in graph[node]:
             if not visited[i]:
-                queue.append([i, depth + 1])
+                queue.append(i)
+                distance[i] = distance[node] + 1
                 visited[i] = True
-        depth += 1
 
     return distance.count(max(distance))
 
