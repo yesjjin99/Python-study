@@ -10,13 +10,13 @@ def solution(distance, rocks, n):
         remove = 0
         prev = 0
         for rock in rocks:
+            if remove > n:
+                break
             if rock - prev < mid:
                 remove += 1
             else:
                 prev = rock
             
-            if remove > n:
-                break
         if remove > n:
             end = mid - 1
         else:
@@ -25,3 +25,4 @@ def solution(distance, rocks, n):
             start = mid + 1
             
     return answer
+    
