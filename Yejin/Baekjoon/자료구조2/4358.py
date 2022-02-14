@@ -17,3 +17,4 @@ sorted.sort()
 
 for d in sorted:
   print(d, '%.4f' % (tree[d] / num * 100))
+  
